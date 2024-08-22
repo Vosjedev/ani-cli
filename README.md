@@ -31,6 +31,10 @@ A cli to browse and watch anime (alone AND with friends). This tool scrapes the 
 
 [ani-cli-demo.webm](https://user-images.githubusercontent.com/44473782/224679247-0856e652-f187-4865-bbcf-5a8e5cf830da.webm)
 
+## Vosjedev's new features
+This is a fork of ani-cli by @vosjedev to add features. I will keep it up to date with upstream bc I use it myself. Note I am thinking about moving this repo to my codeberg. Here's a list of new features (which is currenty only one thing)
+- `-C`/`--copy-link` will copy the video link instead of playing it. Broken on MacOS, unsupported on iOS, but works on linux (wayland and Xorg) and windows.
+
 ## Table of Contents
 
 - [Fixing errors](#fixing-errors)
