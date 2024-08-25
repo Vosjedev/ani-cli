@@ -41,8 +41,8 @@ help_info() {
     Options:
       -c, --continue
         Continue watching from history
-		-C, --copy-link
-		  Copy the video link to clipboard
+      -C, --copy-link
+        Copy the video link to clipboard
       -d, --download
         Download the video instead of playing it
       -D, --delete
@@ -279,7 +279,7 @@ copy_link_linux() {
 
 copy_link_ish() {
     printf "\033[31mSorry, iSH is not supported due to the author of the copy fuction not being able to find a command for copying text in iSH.\nFor now, you can copy the link manually:\033[0m\n%s" "$1"
-	 die
+    die
 }
 
 copy_link() {
@@ -291,8 +291,8 @@ copy_link() {
         *ish*) platform=ish ;;                # iOS (iSH) !! TODO: find a clipboard util for iSH
         *) platform=linux ;;                  # Linux OS
     esac
-	 copy_link_"$platform" "$1"
-	 printf "\033[1;34mLink copied:\033[0m\n%s\n" "$1"
+    copy_link_"$platform" "$1"
+    printf "\033[1;34mLink copied:\033[0m\n%s\n" "$1"
 }
 
 play_episode() {
@@ -422,7 +422,7 @@ while [ $# -gt 0 ]; do
             ;;
         -c | --continue) search=history ;;
         -d | --download) player_function=download ;;
-		  -C | --copy-link) player_function=copy_link ;;
+        -C | --copy-link) player_function=copy_link ;;
         -D | --delete)
             : >"$histfile"
             exit 0
@@ -460,7 +460,7 @@ if [ -z "$ANI_CLI_NON_INTERACTIVE" ]; then dep_ch fzf || true; fi
 case "$player_function" in
     debug) ;;
     download) dep_ch "ffmpeg" "aria2c" ;;
-	 copy_link) : ;; # clipboard util availability is checked just before copy
+    copy_link) : ;; # clipboard util availability is checked just before copy
     flatpak*)
         dep_ch "flatpak"
         flatpak info io.mpv.Mpv >/dev/null 2>&1 || die "Program \"mpv (flatpak)\" not found. Please install it."
